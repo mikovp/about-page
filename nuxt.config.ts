@@ -7,7 +7,10 @@ export default defineNuxtConfig({
     "nuxt-particles"
   ],
   i18n: {
-    vueI18n: './i18n.config.ts'
+    vueI18n: './i18n.config.ts',
+    defaultLocale: 'en',
+    locales: ['en', 'ru'],
+    detectBrowserLanguage: false
   },
   app: {
     baseURL: process.env.NODE_ENV === 'production' ? '/about-page/' : '/'

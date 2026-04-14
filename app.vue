@@ -1,11 +1,10 @@
 <script setup lang="ts">
 const { locale } = useI18n()
 
-useHead(() => ({
+useHead({
   title: "mikovp",
-  htmlAttrs: { lang: locale.value },
   meta: [{ name: "description", content: "mikovp - web developer" }, { name: "viewport", content: "width=device-width, initial-scale=1.0" }]
-}))
+})
 
 const toggleLocale = () => { locale.value = locale.value === 'en' ? 'ru' : 'en' }
 

@@ -1,7 +1,5 @@
 export default defineI18nConfig(() => ({
     legacy: false,
-    locales: ["ru", "en"],
-    defaultLocale: "en",
     messages: {
         en: {
             hello: 'Hello',
