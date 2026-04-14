@@ -1,15 +1,13 @@
 <script setup lang="ts">
-useHead({
-  title: "mikovp",
-  htmlAttrs: { lang: 'en' },
-  meta: [{ name: "description", content: "mikovp - web developer" }, { name: "viewport", content: "width=device-width, initial-scale=1.0" }]
-})
-
 const { locale } = useI18n()
-const toggleLocale = () => {
-  locale.value = locale.value === 'en' ? 'ru' : 'en'
-  useHead({ htmlAttrs: { lang: locale.value } })
-}
+
+useHead(() => ({
+  title: "mikovp",
+  htmlAttrs: { lang: locale.value },
+  meta: [{ name: "description", content: "mikovp - web developer" }, { name: "viewport", content: "width=device-width, initial-scale=1.0" }]
+}))
+
+const toggleLocale = () => { locale.value = locale.value === 'en' ? 'ru' : 'en' }
 
 const cardClass = "rounded-2xl bg-white/40 dark:bg-slate-900/60 backdrop-blur border border-white/10 shadow-sm px-5 pt-1 pb-4 opacity-0 translate-y-2 animate-fade-in-up transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-indigo-300 hover:bg-white/90 dark:hover:bg-slate-900 dark:hover:border-indigo-400 motion-reduce:animate-none motion-reduce:transform-none"
 
