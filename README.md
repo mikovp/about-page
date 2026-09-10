@@ -1,6 +1,6 @@
 # 👋 mikovp — about page
 
-Personal portfolio page built with **Nuxt 3**, **TailwindCSS** and **i18n**.
+Personal portfolio page built with **Nuxt 4**, **TailwindCSS** and **i18n**.
 
 > Full-stack engineer shipping web products since 2018 — backends that don't crumble under load, frontends people actually enjoy using, and the glue automation in between.
 
@@ -12,26 +12,26 @@ Personal portfolio page built with **Nuxt 3**, **TailwindCSS** and **i18n**.
 
 | Feature | Description |
 |---|---|
-| 🌍 **Bilingual** | English / Russian with automatic browser detection |
+| 🌍 **Bilingual** | English / Russian with automatic browser detection (SSR) |
+| 🧠 **AI / LLM focus** | RAG pipelines, LLM integrations, agentic workflows, AI products |
 | 🎨 **Glassmorphism UI** | Frosted-glass cards with backdrop blur & hover effects |
-| ✨ **Particles** | Animated `tsparticles` constellation background (responsive) |
+| ✨ **Particles** | Animated `tsparticles` v4 background (responsive particle count) |
 | 🌗 **Dark mode** | Native `dark:` Tailwind support |
-| 📱 **Responsive** | Mobile-first layout — adaptive particle count |
+| 📱 **Responsive** | Mobile-first layout — stack and adaptive particles |
 | 🚀 **SSG** | Fully static — deploys to GitHub Pages via CI/CD |
-| ♿ **Accessible** | ARIA labels, semantic HTML, keyboard navigation |
-| 🔍 **SEO Optimized** | Open Graph, Twitter Cards, meta tags |
-| 📦 **PWA Ready** | Manifest.json, offline support |
-| 🎯 **Type Safe** | Strict TypeScript with full type checking |
-| ✅ **Tested** | Vitest unit tests with coverage |
-| 🎨 **Linted** | ESLint + Prettier configured |
+| ♿ **Accessible** | ARIA labels, skip-link, semantic HTML, focus-visible states, reduced-motion support |
+| 🔍 **SEO Optimized** | Open Graph, Twitter Cards, canonical URLs, lang attributes |
+| 📦 **PWA Ready** | `manifest.json` |
+| 🎯 **Type Safe** | Strict TypeScript, `nuxt typecheck` passes in CI |
+| ✅ **Tested** | Vitest unit tests (components + constants) |
 
 ---
 
 ## 🛠 Tech Stack
 
 ```
-Nuxt 3  •  Vue 3 (Composition API)  •  TailwindCSS  •  @nuxtjs/i18n  •  tsparticles
-TypeScript  •  Vitest  •  ESLint  •  Prettier
+Nuxt 4  •  Vue 3.5 (Composition API)  •  TailwindCSS v3  •  @nuxtjs/i18n  •  tsparticles v4
+TypeScript  •  Vitest  •  ESLint (flat config)  •  Prettier
 ```
 
 ---
@@ -41,23 +41,25 @@ TypeScript  •  Vitest  •  ESLint  •  Prettier
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) ≥ 20
-- [npm](https://www.npmjs.com/)
+- [npm](https://www.npmjs.com/) ≥ 10
 
 ### Install
 
 ```bash
 git clone https://github.com/mikovp/about-page.git
 cd about-page
-npm install
+npm ci
 ```
+
+> Use `npm ci` for clean, lockfile-driven installs. For everyday development `npm install` also works.
 
 ### Development
 
 ```bash
 npm run dev          # → http://localhost:3000
 npm run lint         # Run ESLint
-npm run lint:fix     # Fix ESLint errors
-npm run typecheck    # TypeScript type checking
+npm run lint:fix     # Auto-fix ESLint issues
+npm run typecheck    # Nuxt + vue-tsc type checking
 npm run test         # Run Vitest tests
 npm run test:ui      # Run tests with UI
 ```
@@ -73,7 +75,7 @@ npm run preview      # preview the production build
 
 ## 📦 Deployment
 
-The project ships to **GitHub Pages** automatically on every push to `master` via a GitHub Action with linting and type checking.
+The project ships to **GitHub Pages** automatically on every push to `master` via a GitHub Action: `npm ci` → lint → typecheck → generate.
 
 ### Manual deploy
 
@@ -89,36 +91,37 @@ Upload the contents of `.output/public/` to any static host (Netlify, Vercel, Cl
 
 ```
 about-page/
-├── app.vue                      # Main app entry
+├── app.vue                      # Main app entry + SEO head
 ├── error.vue                    # Error page (404)
 ├── components/
-│   ├── Card.vue                 # Reusable card component
-│   ├── Hero.vue                 # Hero section
-│   ├── LanguageToggle.vue       # Language switcher
-│   ├── Particles.vue            # Responsive particles background
-│   ├── TechStack.vue            # Tech stack badges
-│   └── WorkList.vue             # Work experience list
+│   ├── Card.vue                 # Reusable glass card
+│   ├── Hero.vue                 # Hero section with social links
+│   ├── LanguageToggle.vue       # EN / RU switcher
+│   ├── Particles.vue            # tsparticles v4 background (VueParticles)
+│   ├── TechStack.vue            # Tech badges
+│   └── WorkList.vue             # Experience list
 ├── composables/
 │   └── useLocaleToggle.ts       # Locale switching logic
 ├── constants/
-│   └── content.ts               # Static content (work items, tech stack)
+│   └── content.ts               # Work items, workflows, tech stack
 ├── types/
-│   └── index.ts                 # TypeScript type definitions
+│   └── index.ts                 # Shared TypeScript types
+├── plugins/
+│   └── particles.client.ts      # tsparticles plugin registration (client-only)
 ├── assets/
 │   └── css/
-│       └── main.css             # Tailwind utilities & components
+│       └── tailwind.css         # Tailwind + reduced-motion fallback
+├── i18n/
+│   └── i18n.config.ts           # EN / RU translations
 ├── tests/                       # Vitest unit tests
-│   ├── components/
-│   └── constants/
-├── i18n.config.ts               # EN / RU translations
-├── nuxt.config.ts               # Nuxt + i18n + SSG + TypeScript config
-├── tailwind.config.ts           # Tailwind settings
+├── nuxt.config.ts               # Nuxt + i18n + SSG config
+├── tailwind.config.ts           # Tailwind settings (fade-in-up animation)
 ├── vitest.config.ts             # Vitest configuration
-├── eslint.config.mjs            # ESLint configuration
+├── eslint.config.mjs            # ESLint flat config
 ├── .prettierrc.cjs              # Prettier configuration
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml           # GitHub Pages CI/CD with lint/typecheck
+│       └── deploy.yml           # GitHub Pages CI/CD (ci → lint → typecheck → generate)
 └── public/
     ├── favicon.ico
     └── manifest.json            # PWA manifest
@@ -126,34 +129,35 @@ about-page/
 
 ---
 
-## 🎯 Recent Improvements
+## 🎯 Highlights
+
+### Content
+- ✅ **AI / LLM first**: experience, approach and tech stack emphasize LLM integrations, RAG pipelines, structured LLM output and agentic workflows in production
 
 ### Critical
 - ✅ SEO meta tags (Open Graph, Twitter Cards, canonical URLs, lang attributes)
 - ✅ Accessibility (ARIA labels, skip-to-content, semantic roles, focus states)
-- ✅ Performance (responsive particle count, lazy loading, ClientOnly)
+- ✅ Performance (responsive particle count, ClientOnly for client-heavy components)
 
 ### Architecture
-- ✅ TypeScript strict mode with full type checking
+- ✅ Strict TypeScript — `nuxt typecheck` passes
 - ✅ Component refactoring (Card, Hero, LanguageToggle, TechStack, WorkList)
-- ✅ Composables for reusable logic (useLocaleToggle)
-- ✅ Constants extraction for maintainability
-- ✅ Tailwind @layer components for reusable styles
+- ✅ Composables for reusable logic (`useLocaleToggle`)
+- ✅ Constants extraction and shared types
+- ✅ i18n `no_prefix` strategy — SSR locale from browser language, cookie persisted
 
 ### Developer Experience
-- ✅ ESLint + Prettier configuration
-- ✅ Vitest setup with unit tests
-- ✅ CI/CD lint and type-check steps
-- ✅ Updated dependencies (Nuxt 3.13, Vue 3.5, latest i18n)
-- ✅ Browser language detection with i18n
-- ✅ Runtime config for environment variables
-- ✅ Error page (error.vue) for 404 handling
+- ✅ ESLint (flat config) + Prettier
+- ✅ Vitest unit tests
+- ✅ CI/CD: `npm ci` → lint → typecheck → static generate
+- ✅ Up-to-date stack: Nuxt 4, Vue 3.5, i18n v10, tsparticles v4
+- ✅ Error page (`error.vue`) for 404 handling
+- ✅ Clean lockfile — `npm ci` runs green on Linux CI
 
 ### UX/UI
-- ✅ PWA support (manifest.json)
-- ✅ Improved keyboard navigation
-- ✅ Focus-visible states for accessibility
-- ✅ Prefers-reduced-motion support
+- ✅ PWA manifest
+- ✅ Keyboard navigation & focus-visible rings
+- ✅ `prefers-reduced-motion` support (content stays visible)
 
 ---
 
