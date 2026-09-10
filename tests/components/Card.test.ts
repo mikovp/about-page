@@ -27,7 +27,7 @@ describe('Card Component', () => {
     
     const listItems = wrapper.findAll('li')
     expect(listItems).toHaveLength(3)
-    expect(listItems[0].text()).toBe('Item 1')
+    expect(listItems[0]?.text()).toBe('Item 1')
   })
 
   it('renders slot content when type is not list', () => {
