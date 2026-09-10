@@ -1,27 +1,40 @@
-# Nuxt dev/build outputs
-.output
-.data
-.nuxt
-.nitro
-.cache
-dist
-
-# Node dependencies
-node_modules
+# Dependencies
+node_modules/
+.nuxt/
+.output/
+.nitro/
 
 # Logs
 logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Misc
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
-.fleet
-.idea
 
-# Local env files
+# Testing
+coverage/
+.nyc_output/
+
+# Environment
 .env
 .env.*
 !.env.example
 
-# Qwen
-.qwen
+# Build
+dist/
+build/
+*.tsbuildinfo
+
+# Misc
+.cache/
+.temp/
+.tmp/
