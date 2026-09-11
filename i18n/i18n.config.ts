@@ -26,7 +26,12 @@ export default defineI18nConfig(() => ({
             ai_workflow_2: 'PHP ecosystem is home base, but stack follows the problem',
             ai_workflow_3: 'Backends that don\'t break, frontends that people actually enjoy',
             ai_workflow_4: 'RAG pipelines, structured LLM output, agentic workflows in production',
-            tech_i_enjoy_title: 'Tech stack'
+            tech_i_enjoy_title: 'Tech stack',
+            error_eyebrow: 'Error 404',
+            error_code: '404',
+            error_title: 'Page not found',
+            error_message: "Looks like you've wandered off the grid — the page you're looking for doesn't exist.",
+            error_home: 'Go home'
         },
         ru: {
             hello: 'Привет',
@@ -53,7 +58,12 @@ export default defineI18nConfig(() => ({
             ai_workflow_2: 'PHP как база, но стек выбирается под задачу',
             ai_workflow_3: 'Бэкенды, которые не ломаются, фронтенды, которыми приятно пользоваться',
             ai_workflow_4: 'RAG-пайплайны, структурированный вывод LLM, агентные workflow в продакшене',
-            tech_i_enjoy_title: 'Технологии'
+            tech_i_enjoy_title: 'Технологии',
+            error_eyebrow: 'Ошибка 404',
+            error_code: '404',
+            error_title: 'Страница не найдена',
+            error_message: 'Кажется, вы сбились с маршрута — такой страницы не существует.',
+            error_home: 'На главную'
         }
     }
 }))

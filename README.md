@@ -20,7 +20,7 @@ Personal portfolio page built with **Nuxt 4**, **TailwindCSS** and **i18n**.
 | 📱 **Responsive** | Mobile-first layout — stack and adaptive particles |
 | 🚀 **SSG** | Fully static — deploys to GitHub Pages via CI/CD |
 | ♿ **Accessible** | ARIA labels, skip-link, semantic HTML, focus-visible states, reduced-motion support |
-| 🔍 **SEO Optimized** | Open Graph, Twitter Cards, canonical URLs, lang attributes |
+| 🔍 **SEO Optimized** | `useSeoMeta`, Open Graph (+`og:locale`), Twitter Cards, canonical URL from `siteUrl`, JSON-LD `Person`, lang attributes |
 | 📦 **PWA Ready** | `manifest.json` |
 | 🎯 **Type Safe** | Strict TypeScript, `nuxt typecheck` passes in CI |
 | ✅ **Tested** | Vitest unit tests (components + constants) |
@@ -40,7 +40,7 @@ TypeScript  •  Vitest  •  ESLint (flat config)  •  Prettier
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) ≥ 20
+- [Node.js](https://nodejs.org/) 24.x (see `.node-version`, `engines` in `package.json`)
 - [npm](https://www.npmjs.com/) ≥ 10
 
 ### Install
@@ -91,8 +91,11 @@ Upload the contents of `.output/public/` to any static host (Netlify, Vercel, Cl
 
 ```
 about-page/
-├── app.vue                      # Main app entry + SEO head
-├── error.vue                    # Error page (404)
+├── app.vue                      # App shell (html lang, skip-link, LanguageToggle, NuxtPage)
+├── error.vue                    # Styled error page (404, glass card, noindex)
+├── pages/
+│   ├── index.vue                # Home page + SEO head (useSeoMeta, canonical, JSON-LD)
+│   └── [...slug].vue            # Catch-all → 404 via error.vue
 ├── components/
 │   ├── Card.vue                 # Reusable glass card
 │   ├── Hero.vue                 # Hero section with social links
@@ -135,7 +138,7 @@ about-page/
 - ✅ **AI / LLM first**: experience, approach and tech stack emphasize LLM integrations, RAG pipelines, structured LLM output and agentic workflows in production
 
 ### Critical
-- ✅ SEO meta tags (Open Graph, Twitter Cards, canonical URLs, lang attributes)
+- ✅ SEO meta tags (`useSeoMeta`: Open Graph + `og:locale`, Twitter Cards, canonical URL, JSON-LD `Person`, lang attributes)
 - ✅ Accessibility (ARIA labels, skip-to-content, semantic roles, focus states)
 - ✅ Performance (responsive particle count, ClientOnly for client-heavy components)
 
@@ -151,7 +154,7 @@ about-page/
 - ✅ Vitest unit tests
 - ✅ CI/CD: `npm ci` → lint → typecheck → static generate
 - ✅ Up-to-date stack: Nuxt 4, Vue 3.5, i18n v10, tsparticles v4
-- ✅ Error page (`error.vue`) for 404 handling
+- ✅ Error page (`error.vue` + `pages/[...slug].vue` catch-all) for 404 handling
 - ✅ Clean lockfile — `npm ci` runs green on Linux CI
 
 ### UX/UI
