@@ -39,7 +39,7 @@ useHead({
 </script>
 
 <template>
-  <div class="bg-slate-300 dark:bg-gray-800 font-sans antialiased">
+  <div class="relative min-h-screen overflow-x-clip bg-slate-300 dark:bg-gray-800 font-sans antialiased">
     <a 
       href="#main-content" 
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
@@ -53,18 +53,18 @@ useHead({
 
     <main 
       id="main-content"
-      class="max-w-6xl mx-auto min-h-screen lg:h-screen flex items-start lg:items-center font-sans px-4 sm:px-6 lg:px-10 py-8 lg:py-0 text-base md:text-lg text-slate-700 dark:text-white"
+      class="relative max-w-6xl mx-auto min-h-screen flex items-start lg:items-center font-sans px-4 sm:px-6 lg:px-10 py-8 lg:py-12 text-base md:text-lg text-slate-700 dark:text-white"
       role="main"
     >
       <Particles />
-      <div class="z-10 w-full">
+      <div class="relative z-10 w-full">
         <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-start">
           <div class="space-y-4 lg:space-y-6">
             <Hero />
           </div>
 
           <section 
-            class="mt-10 lg:mt-0 h-full flex flex-col gap-4 md:gap-5 text-slate-600 dark:text-slate-100 lg:border-l lg:border-white/30 lg:dark:border-white/10 lg:pl-10"
+            class="mt-10 lg:mt-0 flex flex-col gap-4 md:gap-5 text-slate-600 dark:text-slate-100 lg:border-l lg:border-white/30 lg:dark:border-white/10 lg:pl-10"
             aria-label="Professional experience and skills"
           >
             <Card 

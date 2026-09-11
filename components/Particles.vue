@@ -66,7 +66,7 @@ if (import.meta.client) {
 </script>
 
 <template>
-  <div class="absolute inset-0 -z-1" aria-hidden="true">
+  <div class="fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
     <ClientOnly>
       <VueParticles
         id="tsparticles"
