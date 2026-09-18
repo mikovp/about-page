@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/contribution/nitro-plugins
-export default defineNitroPlugin(({ app, event }) => {
+export default defineNitroPlugin(() => {
   // Register service worker for PWA offline support
   if (import.meta.client && 'serviceWorker' in navigator) {
     window.addEventListener('load', () => {

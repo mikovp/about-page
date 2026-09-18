@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/contribution/nitro-plugins
-export default defineNitroPlugin(({ app, event }) => {
+export default defineNitroPlugin(({ event }) => {
   // Inject robots.txt into the response for SSR
   event.context.public.robots = {
     'User-Agent': '*',

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { SOCIAL_LINKS } from '~/constants/content'
-import { EMAIL } from '~/constants/content'
+import { SOCIAL_LINKS, EMAIL } from '~/constants/content'
 </script>
 
 <template>
