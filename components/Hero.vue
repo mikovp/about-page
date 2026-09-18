@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { SOCIAL_LINKS } from '~/constants/content'
+import { EMAIL } from '~/constants/content'
 </script>
 
 <template>
@@ -21,6 +22,13 @@ import { SOCIAL_LINKS } from '~/constants/content'
           {{ $t('company_name') }}
         </a>
         {{ $t('about_2') }}
+        <a
+          :href="EMAIL.url"
+          class="ml-4 text-indigo-600 dark:text-indigo-400 underline underline-offset-[3px] hover:text-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:rounded"
+          :aria-label="'Send email'"
+        >
+          {{ EMAIL.text }}
+        </a>
       </p>
     </section>
     <footer class="mt-6 md:mt-8 font-medium text-slate-600 dark:text-slate-100">

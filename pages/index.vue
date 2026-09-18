@@ -14,6 +14,8 @@ const seoDescription = computed(() => locale.value === 'en'
   : 'Full-stack разработчик, создающий веб-продукты с 2018 года. PHP, Laravel, Vue.js, React, AWS, Docker, Kubernetes. Бэкенды которые не ломаются и фронтенды которыми приятно пользоваться.'
 )
 
+const ogImage = computed(() => publicConfig.siteUrl as string)
+
 const canonicalUrl = computed(() => publicConfig.siteUrl as string)
 const ogLocale = computed(() => locale.value === 'ru' ? 'ru_RU' : 'en_US')
 
@@ -26,6 +28,7 @@ useSeoMeta({
   ogUrl: canonicalUrl,
   ogSiteName: 'mikovp',
   ogLocale,
+  ogImage,
   twitterCard: 'summary_large_image',
   twitterTitle: seoTitle,
   twitterDescription: seoDescription,

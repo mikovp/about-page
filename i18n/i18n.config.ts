@@ -1,5 +1,6 @@
 export default defineI18nConfig(() => ({
     legacy: false,
+    localePath: '/i18n/locale.json',
     messages: {
         en: {
             hello: 'Hello',

@@ -3,8 +3,24 @@ const { locale } = useI18n()
 
 useHead({
   htmlAttrs: {
-    lang: locale
-  }
+    lang: locale,
+    'itemscope': 'itemscope'
+  },
+  link: [
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+    { rel: 'preconnect', href: 'https://www.cloudflare.com' },
+    { rel: 'apple-touch-icon', href: '/apple-touch-icon.svg' }
+  ],
+  link: [
+    { rel: 'manifest', href: '/manifest.json' }
+  ],
+  meta: [
+    { name: 'color-scheme', content: 'light dark' },
+    { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+    { name: 'msapplication-TileColor', content: '#1e293b' },
+    { name: 'msapplication-TileImage', content: '/favicon.ico' }
+  ]
 })
 </script>
 

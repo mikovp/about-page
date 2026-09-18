@@ -65,3 +65,8 @@ export const SOCIAL_LINKS = {
     title: 'View my LinkedIn profile'
   }
 } as const
+
+export const EMAIL = {
+  url: 'mailto:hello@mikovp.com',
+  text: 'hello@mikovp.com'
+} as const

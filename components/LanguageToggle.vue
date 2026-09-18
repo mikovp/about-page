@@ -24,6 +24,12 @@ const { locale, toggleLocale } = useLocaleToggle()
       <span class="text-sm font-semibold text-slate-700 dark:text-slate-200 min-w-[20px]">
         {{ locale === 'en' ? 'EN' : 'RU' }}
       </span>
+      <span
+        class="sr-only"
+        :aria-hidden="locale === 'en' ? 'true' : 'false'"
+      >
+        {{ locale === 'en' ? '(English)' : '(Русский)' }}
+      </span>
       <div class="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500/0 via-indigo-500/10 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </button>
   </div>

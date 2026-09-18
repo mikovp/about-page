@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-variant-numeric: tabular-nums;
+  font-display: swap;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
