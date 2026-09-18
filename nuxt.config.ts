@@ -19,8 +19,7 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_redirected',
       redirectOn: 'root',
       alwaysRedirect: false
-    },
-    localesPath: '/locales.json'
+    }
   },
 
   runtimeConfig: {
@@ -44,18 +43,18 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/'],
-      crawlLinks: true,
-      generate: ['sitemap.xml']
+      crawlLinks: true
     },
-    h3: {
-      'defaultHeaders': {
-        'Cache-Control': 'public, max-age=3600',
-        'X-Robots-Tag': 'index, follow'
+    routeRules: {
+      '/': {
+        headers: {
+          'Cache-Control': 'public, max-age=3600',
+          'X-Robots-Tag': 'index, follow'
+        }
       }
     }
   },
 
-  middleware: ['nitro/middleware/locale.ts'],
   typescript: {
     strict: true,
     typeCheck: false

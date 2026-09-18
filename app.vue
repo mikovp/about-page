@@ -3,15 +3,12 @@ const { locale } = useI18n()
 
 useHead({
   htmlAttrs: {
-    lang: locale,
-    'itemscope': 'itemscope'
+    lang: locale
   },
   link: [
-    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: 'anonymous' },
     { rel: 'preconnect', href: 'https://www.cloudflare.com' },
-    { rel: 'apple-touch-icon', href: '/apple-touch-icon.svg' }
-  ],
-  link: [
+    { rel: 'apple-touch-icon', href: '/apple-touch-icon.svg' },
     { rel: 'manifest', href: '/manifest.json' }
   ],
   meta: [
