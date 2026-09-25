@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 import { SOCIAL_LINKS } from '~/constants/content'
-import App from './App.vue'
 
 const props = defineProps<{
   error?: NuxtError
