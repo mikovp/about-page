@@ -26,10 +26,10 @@ export interface ParticlesOptions {
     number: {
       value: number
     }
-    size?: {
+    size: {
       value: number
     }
-    opacity?: {
+    opacity: {
       value: number
     }
   }

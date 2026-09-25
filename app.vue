@@ -31,6 +31,7 @@ useHead({
     </a>
 
     <ClientOnly>
+      <Particles />
       <LanguageToggle />
     </ClientOnly>
 

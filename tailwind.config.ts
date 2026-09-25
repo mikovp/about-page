@@ -19,6 +19,7 @@ export default {
       animation: {
         'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
       },
+      prefix: 'motion-reduce:',
     },
   },
   plugins: [],

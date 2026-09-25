@@ -24,7 +24,6 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseURL: process.env.NODE_ENV === 'production' ? '/about-page/' : '/',
       siteUrl: 'https://mikovp.github.io/about-page/'
     }
   },
@@ -60,5 +59,5 @@ export default defineNuxtConfig({
     typeCheck: false
   },
 
-  compatibilityDate: '2024-09-10'
+  compatibilityDate: '2026-09-01'
 })

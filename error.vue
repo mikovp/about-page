@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 import { SOCIAL_LINKS } from '~/constants/content'
+import App from './App.vue'
 
 const props = defineProps<{
   error?: NuxtError
 }>()
+
+defineOptions({
+  inheritAttrs: false,
+})
 
 const { locale } = useI18n()
 
@@ -41,7 +46,6 @@ const handleError = () => clearError({ redirect: '/' })
       class="relative max-w-6xl mx-auto min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-10 py-8 lg:py-12 text-base md:text-lg text-slate-700 dark:text-white"
       role="main"
     >
-      <Particles />
       <div class="relative z-10 w-full flex justify-center">
         <article
           class="w-full max-w-lg text-center rounded-2xl bg-white/40 dark:bg-slate-900/60 backdrop-blur border border-white/10 shadow-sm px-6 sm:px-10 pt-6 pb-8 animate-fade-in-up motion-reduce:animate-none"
